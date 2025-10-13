@@ -3,8 +3,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    enum GameStates {GamePlay, Pause};
-    [SerializeField] GameStates  state ;
+    public enum GameStates {GamePlay, Pause};
+    public GameStates  state ;
     private bool hasChanged = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
