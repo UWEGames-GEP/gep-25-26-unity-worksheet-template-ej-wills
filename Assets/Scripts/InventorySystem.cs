@@ -9,6 +9,7 @@ public class InventorySystem : MonoBehaviour
 
     [SerializeField] List<string> items = new List<string>();
     public   GameManager gameManager;
+    ItemObject collisionItem = hit.gameObject.GetComponent<ItemObject>();
 
     void Start()
     {
@@ -30,20 +31,38 @@ public class InventorySystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameManager.state == GameManager.GameStates.GamePlay)
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Add("something");
-        }
 
-        if(Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Remove("something");
-        }
+
+        if(gameManager.state == GameManager.GameStates.GamePlay)
+        // if(Input.GetKeyDown(KeyCode.Alpha1))
+        // {
+        //     Add("something");
+        // }
+
+        // if(Input.GetKeyDown(KeyCode.Alpha2))
+        // {
+        //     Remove("something");
+        // }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             gameManager = null;
         }
+
+    
+
+    
+    }
+
+    void OnControllerColliderHit()
+    {
+         
+
+
+    if(collisionItem != null)
+    {
+        items.Add(collisionItem.name);
+        Destroy(collisionItem.gameObject);
+    }
     }
 }
