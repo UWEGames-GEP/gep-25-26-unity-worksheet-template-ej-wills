@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 
     public enum GameStates {GamePlay, Pause};
     public GameStates  state ;
-    private bool hasChanged = false;
+  
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Return))
         {
             state = GameStates.Pause;
-            hasChanged = true;
+          
         }
        } 
 
@@ -32,28 +32,27 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Return))
         {
             state = GameStates.GamePlay;
-            hasChanged = true;
+            
         }
        }
     }
 
     private void LateUpdate()
     {
-        if(hasChanged)
+
+        switch(state)
         {
-            hasChanged = false;
+            case GameStates.GamePlay:
+                Time.timeScale = 1.0f;
+                break;
+
+            case GameStates.Pause:
+                Time.timeScale = 0.0f;
+                break;
+        }
+
+
         
-
-        if (state == GameStates.GamePlay)
-        {
-            Time.timeScale = 1.0f;
-        }
-        else if (state == GameStates.Pause)
-        {
-            Time.timeScale = 0.0f;
-
-        }
-        }
 
     }
 

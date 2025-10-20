@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class InventorySystem : MonoBehaviour
 
     [SerializeField] List<string> items = new List<string>();
     public   GameManager gameManager;
-    ItemObject collisionItem = hit.gameObject.GetComponent<ItemObject>();
+    
 
     void Start()
     {
@@ -18,7 +19,10 @@ public class InventorySystem : MonoBehaviour
     public void Add(string ItemName)
     {
         items.Add(ItemName);
+        
     }
+
+  
 
     public void Remove(string ItemName)
     {
@@ -54,15 +58,18 @@ public class InventorySystem : MonoBehaviour
     
     }
 
-    void OnControllerColliderHit()
+    void OnControllerColliderHit(ControllerColliderHit hit )
     {
-         
+        ItemObject collisionItem = hit.gameObject.GetComponent<ItemObject>();
 
 
-    if(collisionItem != null)
-    {
+        if (collisionItem != null)
+        {
         items.Add(collisionItem.name);
+        
+
+
         Destroy(collisionItem.gameObject);
-    }
+        }
     }
 }
