@@ -7,6 +7,9 @@ public class Interaction : MonoBehaviour
    [SerializeField] private LayerMask interactableLayer;
     private PlayerInput _playerInput;
     private Transform _transform;
+   [SerializeField] InventorySystem items;
+   public Interactables interactable;
+   ItemObject objects;
 
    private void Awake()
    {
@@ -29,8 +32,11 @@ public class Interaction : MonoBehaviour
       if(!Physics.Raycast(_transform.position + (_transform.forward * .2f), _transform.forward, out var hit, 1.5f, interactableLayer)) return;
 
 
-      if(!hit.transform.TryGetComponent(out Interactables interactable)) return;
+      if(!hit.transform.TryGetComponent(out  interactable)) return;
+       
       interactable.Interact();
+      objects = interactable.GetComponent<ItemObject>();
+      items.Add(objects.name);
       Debug.Log("Interact");
    }
 }

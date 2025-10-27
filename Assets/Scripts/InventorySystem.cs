@@ -8,8 +8,9 @@ public class InventorySystem : MonoBehaviour
 
   
 
-    [SerializeField] List<string> items = new List<string>();
+    public List<string> items = new List<string>();
     public   GameManager gameManager;
+    Interaction interactable;
     
 
     void Start()
@@ -37,16 +38,7 @@ public class InventorySystem : MonoBehaviour
     {
 
 
-        if(gameManager.state == GameManager.GameStates.GamePlay)
-        // if(Input.GetKeyDown(KeyCode.Alpha1))
-        // {
-        //     Add("something");
-        // }
-
-        // if(Input.GetKeyDown(KeyCode.Alpha2))
-        // {
-        //     Remove("something");
-        // }
+       
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -58,18 +50,24 @@ public class InventorySystem : MonoBehaviour
     
     }
 
-    void OnControllerColliderHit(ControllerColliderHit hit )
-    {
-        ItemObject collisionItem = hit.gameObject.GetComponent<ItemObject>();
+    // void OnControllerColliderHit(ControllerColliderHit hit )
+    // {
+    //     ItemObject collisionItem = hit.gameObject.GetComponent<ItemObject>();
 
 
-        if (collisionItem != null)
-        {
-        items.Add(collisionItem.name);
+    //     if (collisionItem != null)
+    //     {
+    //     items.Add(interactable.name);
         
 
 
-        Destroy(collisionItem.gameObject);
-        }
+    //     Destroy(interactable.gameObject);
+    //     }
+    // }
+
+     public void Item()
+     {
+        items.Add(interactable.name);
+
     }
 }
