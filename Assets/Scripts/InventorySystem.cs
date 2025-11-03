@@ -65,9 +65,9 @@ public class InventorySystem : MonoBehaviour
     //     }
     // }
 
-     public void Item()
+     public void Item(ItemObject item)
      {
-        items.Add(interactable.name);
+        items.Add(item.name);
 
     }
 }

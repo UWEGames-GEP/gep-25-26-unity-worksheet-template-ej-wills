@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,8 +11,9 @@ public class Interaction : MonoBehaviour
    [SerializeField] InventorySystem items;
    public Interactables interactable;
    ItemObject objects;
+    public List<string> item = new List<string>();
 
-   private void Awake()
+    private void Awake()
    {
       _transform = transform;
       _playerInput = GetComponent<PlayerInput>();
@@ -33,10 +35,14 @@ public class Interaction : MonoBehaviour
 
 
       if(!hit.transform.TryGetComponent(out  interactable)) return;
-       
-      interactable.Interact();
+
+
+    
+
+    interactable.Interact();
       objects = interactable.GetComponent<ItemObject>();
-      items.Add(objects.name);
+     // items.Add(objects.name);
+        items.Item(objects);
       Debug.Log("Interact");
    }
 }
