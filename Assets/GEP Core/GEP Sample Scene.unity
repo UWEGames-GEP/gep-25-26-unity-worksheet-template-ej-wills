@@ -1268,6 +1268,7 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  PauseButton: {fileID: 2045848794}
 --- !u!1 &1434211703
 GameObject:
   m_ObjectHideFlags: 0
