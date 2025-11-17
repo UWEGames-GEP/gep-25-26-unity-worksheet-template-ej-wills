@@ -8,7 +8,7 @@ public class InventorySystem : MonoBehaviour
 
   
 
-    public List<string> items = new List<string>();
+    public List<ItemObject> items = new List<ItemObject>();
     public   GameManager gameManager;
     Interaction interactable;
     
@@ -16,18 +16,42 @@ public class InventorySystem : MonoBehaviour
     void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
+
+         Transform worldItemsTransform = GameObject.Find("WorldItems").transform;
     }
-    public void Add(string ItemName)
+
+    public void Add(ItemObject item)
     {
-        items.Add(ItemName);
-        
+        if(item != null)
+        {
+        items.Add(item);
+        }
     }
 
   
 
-    public void Remove(string ItemName)
+    public void Remove(ItemObject item)
     {
-        items.Remove(ItemName);
+        if(gameManager.state == GameStates.GamePlay && items.Count > 0)
+        {
+            ItemObject ittem = items[0];
+
+            Vector3 currentPosition = transform.position;
+            Vector3 forward = transform.forward;
+
+            Vector3 newPosition = currentPosition + forward;
+            newPosition += new Vector3(0,1,0);
+
+            Quaternion currentRotation = transform.rotation;
+            Quaternion newRotation = currentRotation * Quaternion.Euler(0,0,180);
+
+            GameObject newItem = Instantiate(ittem.gameObject, newPosition, newRotation, worldItemsTransform);
+            //newItem.setActive(true);
+        
+            items.Remove(ittem);
+            Destroy(item.gameObject);
+        
+        }
     }
 
 
@@ -65,9 +89,9 @@ public class InventorySystem : MonoBehaviour
     //     }
     // }
 
-     public void Item(ItemObject item)
-     {
-        items.Add(item.name);
+    //  public void Item(ItemObject item)
+    //  {
+    //     items.Add(item.name);
 
-    }
+    // }
 }
