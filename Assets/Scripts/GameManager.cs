@@ -5,7 +5,8 @@ public class GameManager : MonoBehaviour
 
     public enum GameStates {GamePlay, Pause};
     public GameStates  state ;
-  
+    public GameObject inventoryUI;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -59,10 +60,14 @@ public class GameManager : MonoBehaviour
         {
             case GameStates.GamePlay:
                 Time.timeScale = 1.0f;
+                inventoryUI.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
                 break;
 
             case GameStates.Pause:
                 Time.timeScale = 0.0f;
+                inventoryUI.SetActive(true);
+                 Cursor.lockState = CursorLockMode.None;
                 break;
         }
 

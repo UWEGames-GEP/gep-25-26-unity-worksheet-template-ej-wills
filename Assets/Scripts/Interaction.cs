@@ -30,7 +30,7 @@ public class Interaction : MonoBehaviour
 
    private void DoInteract(InputAction.CallbackContext callbackContext)
    {
-      if(!Physics.Raycast(_transform.position + (_transform.forward * .2f), _transform.forward, out var hit, 1.5f, interactableLayer)) return;
+      if(!Physics.Raycast(_transform.position + (_transform.forward * .2f), _transform.forward, out var hit, 3f, interactableLayer)) return;
 
 
       if(!hit.transform.TryGetComponent(out  interactable)) return;

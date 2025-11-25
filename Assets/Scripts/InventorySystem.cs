@@ -7,7 +7,7 @@ public class InventorySystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
   
-
+    public Transform worldItemsTransform;
     public List<ItemObject> items = new List<ItemObject>();
     public   GameManager gameManager;
     Interaction interactable;
@@ -17,7 +17,7 @@ public class InventorySystem : MonoBehaviour
     {
         gameManager = FindAnyObjectByType<GameManager>();
 
-         Transform worldItemsTransform = GameObject.Find("WorldItems").transform;
+          worldItemsTransform = GameObject.Find("GameObject").transform;
     }
 
     public void Add(ItemObject item)
@@ -25,6 +25,9 @@ public class InventorySystem : MonoBehaviour
         if(item != null)
         {
         items.Add(item);
+       
+        item.gameObject.SetActive(false);
+        //Destroy(item);
         }
     }
 
@@ -32,9 +35,7 @@ public class InventorySystem : MonoBehaviour
 
     public void Remove(ItemObject item)
     {
-        if(gameManager.state == GameStates.GamePlay && items.Count > 0)
-        {
-            ItemObject ittem = items[0];
+
 
             Vector3 currentPosition = transform.position;
             Vector3 forward = transform.forward;
@@ -45,15 +46,35 @@ public class InventorySystem : MonoBehaviour
             Quaternion currentRotation = transform.rotation;
             Quaternion newRotation = currentRotation * Quaternion.Euler(0,0,180);
 
-            GameObject newItem = Instantiate(ittem.gameObject, newPosition, newRotation, worldItemsTransform);
-            //newItem.setActive(true);
+            GameObject newItem = Instantiate(item.gameObject, newPosition, newRotation, worldItemsTransform);
+            newItem.SetActive(true);
         
-            items.Remove(ittem);
+            items.Remove(item);
             Destroy(item.gameObject);
         
-        }
+        
     }
 
+    public void Remove()
+    {
+        if(gameManager.state == GameManager.GameStates.GamePlay && items.Count > 0)
+        {
+            ItemObject item = items[0];
+
+            Remove(item);
+        
+        }
+
+    }
+
+
+   public void Remove(int i)
+    {
+        if (i < items.Count)
+        {
+            Remove(items[i]);
+        }
+    } 
 
    
 
