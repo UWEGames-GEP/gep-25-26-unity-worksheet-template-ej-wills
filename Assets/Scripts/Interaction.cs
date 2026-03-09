@@ -32,7 +32,7 @@ public class Interaction : MonoBehaviour
 
    private void DoInteract(InputAction.CallbackContext callbackContext)
    {
-      if(!Physics.Raycast(_transform.position + Vector3.up * 1.2f +(_transform.forward * .2f), _transform.forward, out var hit, 3f, interactableLayer)) return;
+      if(!Physics.Raycast(_transform.position + Vector3.up * 1.2f +(_transform.forward * .2f), camera.transform.forward, out var hit, 3f, interactableLayer)) return;
       //f(!Physics.Raycast(camera.transform.position + (camera.transform.forward * .2f), camera.transform.forward, out var hit, 3f, interactableLayer)) return;
 
         
@@ -52,6 +52,6 @@ public class Interaction : MonoBehaviour
 
    private void Update()
    {
-       Debug.DrawRay(_transform.position + Vector3.up * 1.2f + (_transform.forward * .2f), _transform.forward * 3f, Color.red, 1f);
+       Debug.DrawRay(_transform.position + Vector3.up * 1.2f + (camera.transform.forward * .2f), _transform.forward * 3f, Color.red, 1f);
    }
 }

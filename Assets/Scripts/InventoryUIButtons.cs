@@ -8,12 +8,12 @@ public class InventoryUIButtons : MonoBehaviour
     public Image iconImage;
     public ItemData data;
   
- public void SetButton(ItemObject item)
+ public void SetButton(InventorySlot slot)
  {
-    text.text = item.data.name;
+    text.text = slot.item.name + "x" + slot.amount;
     
-    iconImage.sprite = item.data.icon;
+    iconImage.sprite = slot.item.icon;
     iconImage.enabled = true;
-      iconImage.color = item.data.iconColor;
+      iconImage.color = slot.item.iconColor;
  }
 }

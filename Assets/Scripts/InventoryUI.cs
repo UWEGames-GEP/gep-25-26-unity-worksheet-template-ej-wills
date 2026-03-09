@@ -28,10 +28,10 @@ public class InventoryUI : MonoBehaviour
     if(i < inventoryUIButtons.Count )
     {
         InventoryUIButtons uiButton = inventoryUIButtons[i].GetComponent<InventoryUIButtons>();
-        ItemObject item = inventory.items[i];
+        InventorySlot slot = inventory.items[i];
 
         uiButton.gameObject.SetActive(true);
-        uiButton.SetButton(item);
+        uiButton.SetButton(slot);
     }
   }
 }

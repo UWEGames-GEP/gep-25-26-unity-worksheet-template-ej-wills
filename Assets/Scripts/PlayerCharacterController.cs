@@ -20,7 +20,7 @@ public class PlayerCharacterController : ThirdPersonController
     if(value.isPressed)
     {
         Debug.Log("remove");
-        GetComponent<InventorySystem>().Remove(GetComponent<InventorySystem>().items[0]);
+        GetComponent<InventorySystem>().Remove(0);
     }
    }
 }

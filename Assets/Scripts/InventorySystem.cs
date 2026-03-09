@@ -8,7 +8,7 @@ public class InventorySystem : MonoBehaviour
 
   
     public Transform worldItemsTransform;
-    public List<ItemObject> items = new List<ItemObject>();
+    public List<InventorySlot> items = new List<InventorySlot>();
     public   GameManager gameManager;
     Interaction interactable;
     
@@ -22,20 +22,33 @@ public class InventorySystem : MonoBehaviour
 
     public void Add(ItemObject item)
     {
-        if(item != null)
+        ItemData data = item.data;
+
+        foreach ( InventorySlot slot in items)
         {
-        items.Add(item);
+            if(slot.item == data)
+            {
+                slot.amount++;
+                item.gameObject.SetActive(false);
+                return;
+            }
+        }
+
+        
+        items.Add(new InventorySlot(data, 1));
        
         item.gameObject.SetActive(false);
         //Destroy(item);
-        }
+        
     }
 
   
 
-    public void Remove(ItemObject item)
+    public void Remove(int i)
     {
 
+        if( i >= items.Count) return;
+        InventorySlot slot = items[i];
 
             Vector3 currentPosition = transform.position;
             Vector3 forward = transform.forward;
@@ -46,11 +59,18 @@ public class InventorySystem : MonoBehaviour
             Quaternion currentRotation = transform.rotation;
             Quaternion newRotation = currentRotation * Quaternion.Euler(0,0,180);
 
-            GameObject newItem = Instantiate(item.gameObject, newPosition, newRotation, worldItemsTransform);
+            GameObject newItem = Instantiate(slot.item.worldPrefab, newPosition, newRotation, worldItemsTransform);
             newItem.SetActive(true);
+
+            slot.amount--;
+
+            if(slot.amount <= 0)
+            {
+                items.RemoveAt(i);
+            }
         
-            items.Remove(item);
-            Destroy(item.gameObject);
+          //  items.Remove(item);
+         //   Destroy(item.gameObject);
         
         
     }
@@ -59,20 +79,18 @@ public class InventorySystem : MonoBehaviour
     {
         if(gameManager.state == GameManager.GameStates.GamePlay && items.Count > 0)
         {
-            ItemObject item = items[0];
-
-            Remove(item);
+            Remove(0);
         
         }
 
     }
 
 
-   public void Remove(int i)
+   public void RemoveAt(int i)
     {
         if (i < items.Count)
         {
-            Remove(items[i]);
+            Remove(i);
         }
     } 
 
@@ -95,6 +113,7 @@ public class InventorySystem : MonoBehaviour
     
     }
 
+  
     // void OnControllerColliderHit(ControllerColliderHit hit )
     // {
     //     ItemObject collisionItem = hit.gameObject.GetComponent<ItemObject>();

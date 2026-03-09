@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class ItemData : MonoBehaviour
+
+[CreateAssetMenu(menuName = "Inventory/Item")]
+
+public class ItemData : ScriptableObject
 {
 
     public string itemName;
@@ -8,15 +11,5 @@ public class ItemData : MonoBehaviour
     public GameObject worldPrefab;
    public Color iconColor = Color.white; 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
