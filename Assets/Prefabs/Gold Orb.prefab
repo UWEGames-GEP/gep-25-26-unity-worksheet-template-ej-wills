@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3914150965775951071}
   - component: {fileID: 9173759769338846711}
   m_Layer: 6
-  m_Name: Generic Orb
+  m_Name: Gold Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 0474e2b5696a6cf4eadf73e01de35a35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c35ed43519b7cc48bbf75b277137622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 3210637edfaadde47b13cc5710a52096, type: 2}
 --- !u!114 &3914150965775951071
 MonoBehaviour:
   m_ObjectHideFlags: 0

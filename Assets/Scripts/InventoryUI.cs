@@ -31,7 +31,7 @@ public class InventoryUI : MonoBehaviour
         InventorySlot slot = inventory.items[i];
 
         uiButton.gameObject.SetActive(true);
-        uiButton.SetButton(slot);
+        uiButton.SetButton(slot, i, this);
     }
   }
 }

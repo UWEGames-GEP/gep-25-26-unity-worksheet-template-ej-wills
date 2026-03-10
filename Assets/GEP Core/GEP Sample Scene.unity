@@ -231,7 +231,7 @@ PrefabInstance:
     - target: {fileID: 2968315134033353614, guid: 3009f156a0989c74cb4dae00dadf799d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: c2e40fa84d53ccd428f640eac126b1fb, type: 2}
+      objectReference: {fileID: 2100000, guid: 0474e2b5696a6cf4eadf73e01de35a35, type: 2}
     - target: {fileID: 3914150965775951071, guid: 3009f156a0989c74cb4dae00dadf799d, type: 3}
       propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -848,10 +848,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: cf53b104cbd7ef14387199b2643bf255, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 727679646}
+        m_TargetAssemblyTypeName: InventoryUIButtons, Assembly-CSharp
+        m_MethodName: onClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1184,7 +1184,7 @@ PrefabInstance:
     - target: {fileID: 2968315134033353614, guid: 3009f156a0989c74cb4dae00dadf799d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 979aef027a1c86c42a15ce35fce366fa, type: 2}
+      objectReference: {fileID: 2100000, guid: 3fc9419bef693f14e8513fea7e4d27b4, type: 2}
     - target: {fileID: 3914150965775951071, guid: 3009f156a0989c74cb4dae00dadf799d, type: 3}
       propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -2403,13 +2403,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1692297601}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
-        m_MethodName: set_material
-        m_Mode: 2
+      - m_Target: {fileID: 1692297603}
+        m_TargetAssemblyTypeName: InventoryUIButtons, Assembly-CSharp
+        m_MethodName: onClick
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 7ab977a21c92388468ee65ad1c0e5a78, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 0
@@ -2916,10 +2916,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: cf53b104cbd7ef14387199b2643bf255, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 1883008480}
+        m_TargetAssemblyTypeName: InventoryUIButtons, Assembly-CSharp
+        m_MethodName: onClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3046,7 +3046,7 @@ PrefabInstance:
     - target: {fileID: 2968315134033353614, guid: 3009f156a0989c74cb4dae00dadf799d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 4f1ef37ae953c484bbc5d5e4049147e5, type: 2}
+      objectReference: {fileID: 2100000, guid: 147f7e68cf431ea43a4372dee20424d8, type: 2}
     - target: {fileID: 3914150965775951071, guid: 3009f156a0989c74cb4dae00dadf799d, type: 3}
       propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -3580,9 +3580,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 694ac9a4edde13642b8975d107995ac0, type: 2}
     - target: {fileID: 2968315134033353614, guid: 3009f156a0989c74cb4dae00dadf799d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968315134033353614, guid: 3009f156a0989c74cb4dae00dadf799d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 979aef027a1c86c42a15ce35fce366fa, type: 2}
+      objectReference: {fileID: 2100000, guid: 3fc9419bef693f14e8513fea7e4d27b4, type: 2}
     - target: {fileID: 3914150965775951071, guid: 3009f156a0989c74cb4dae00dadf799d, type: 3}
       propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.size
       value: 0

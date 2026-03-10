@@ -22,6 +22,8 @@ public class InventorySystem : MonoBehaviour
 
     public void Add(ItemObject item)
     {
+        if(item == null || item.data == null) return;
+
         ItemData data = item.data;
 
         foreach ( InventorySlot slot in items)
